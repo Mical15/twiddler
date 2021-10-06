@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="jquery.js"></script>
+    <script src="dataGenerator.js"></script>
+    <script src="src/underbar.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <link rel="stylesheet" href="mystyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@600&display=swap" rel="stylesheet">
+    </head>
+  <body>
+    <script>
+
+
+      $(document).ready(function(){
+        var $body = $('body');
+        $body.html('');
+        // $("body").css("background-color", "#5685c5");
+        // $('body').css("background-image", "url("/Users/michaelgallien/Downloads/rocket-1604041220467-252.jpg")" );
+
+        // HEADERS //
+        var $header = $('<header><h1>Twiddler</h1></header>');
+        $header.appendTo($body);
+
+        // MAIN //
+        var $main = $('<main></main>');
+        $main.appendTo($body);
+
+        $mainDiv = $('<div></div>');
+        $mainDiv.appendTo($main);
+
+        // // MAIN BUTTON //
+        // var $mainButton = $('<button>New Tweet! </button>')
+        // $mainButton.appendTo($main);
+        // $mainButton.addClass('mainButton');
+        // $($mainButton).on('click', function() {
+        //   // generateRandomTweet();
+        //   // $main.html("<main></main>");
+        //   // $mainDiv.html('<div></div>');
+        //   // $($mainDiv).empty();
+        //   // $($tweetArea2).empty();
+        //   // $tweetArea2.html("<h4>Newest Tweet</h4>");
+        //   var newTweet = streams.home[streams.home.length - 1];
+        //   // if (newTweet.user === 'shawndrost') {
+        //   //   shawndrostArray.push(newTweet.message);
+        //   // }
+        //   // if (newTweet.user === 'sharksforcheap') {
+        //   //   sharksforcheapArray.push(newTweet.message);
+        //   // }
+        //   // if (newTweet.user === 'douglascalhoun') {
+        //   //   douglascalhounArray.push(newTweet.message);
+        //   // }
+        //   // if (newTweet.user === 'mracus') {
+        //   //   mracusArray.push(newTweet.message);
+        //   // }
+        //   var $miniAsides = $('<div></div>')
+        //   $miniAsides.appendTo($userTweets)
+        //   $miniAsides.addClass('tweetArea')
+        //   var time = "at " + newTweet.created_at.toUTCString();
+        //   var $user = $('<p></p>');
+        //   $user.text('@' + newTweet.user + ': ');
+        //   $user.addClass('userName');
+        //   $user.appendTo($miniAsides);
+        //   var $tweet = $('<p></p>');
+        //   $tweet.text(newTweet.message);
+        //   $tweet.appendTo($miniAsides);
+        //   var $times = $('<p></p>');
+        //   $times.text(' ' + time)
+        //   $times.appendTo($miniAsides);
+        //   $times.addClass('time');
+        //   // $miniAsides.prependTo($userTweets);
+        //   $miniAsides.clone().prependTo($userTweets, $tweetArea2);
+        //   // var $title = $('<h5>Tweets</h5>');
+        //   // $title.prependTo($userTweets);
+        //   // $miniAsides.perpendTo($userTweets);
+        // });
+
+        // LOGIN AREA (Couldn't get to work, so I abandoned)
+        var $loginArea = $('<section></section>');
+        $loginArea.appendTo($body);
+        $loginArea.addClass('sectionOpaque')
+        var $loginArea2 = $('<section><h4>Users</h4></section>');
+        $loginArea2.appendTo($body);
+        $loginArea2.addClass('loginArea2')
+        // TWEET AREA2
+        var $tweetArea2 = $('<section></section>');
+        // <section><h4>Newest Tweet</h4></section>
+        $tweetArea2.appendTo($body);
+        $tweetArea2.addClass('tweetArea2');
+        $tweetArea2.addClass('scrollable');
+
+
+        // MAIN AREA
+        var $userTweets = $('<aside></aside>');
+        $userTweets.addClass('scrollable');
+        $userTweets.appendTo($body);
+        var index = streams.home.length - 1;
+        while(index >= 0){
+          var tweet = streams.home[index];
+          var $miniAsides = $('<div></div>');
+          $miniAsides.prependTo($userTweets);
+          $miniAsides.addClass('tweetArea');
+          var time = "at " + tweet.created_at.toUTCString();
+          var $user = $('<p></p>');
+          $user.text('@' + tweet.user + ': ');
+          $user.appendTo($miniAsides);
+          $user.addClass('userName');
+          var $tweet = $('<p></p>');
+          $tweet.text(tweet.message);
+          $tweet.appendTo($miniAsides);
+          var $times = $('<p></p>');
+          $times.text(' ' + time);
+          $times.appendTo($miniAsides);
+          $times.addClass('time');
+          index -= 1;
+        };
+
+        setInterval(function(){
+          var newTweet = streams.home[streams.home.length - 1];
+          var $miniAsides = $('<div></div>');
+          $miniAsides.appendTo($userTweets);
+          $miniAsides.addClass('tweetArea');
+          var time = "at " + newTweet.created_at.toUTCString();
+          var $user = $('<p></p>');
+          $user.text('@' + newTweet.user + ': ');
+          $user.addClass('userName');
+          $user.appendTo($miniAsides);
+          var $tweet = $('<p></p>');
+          $tweet.text(newTweet.message);
+          $tweet.appendTo($miniAsides);
+          var $times = $('<p></p>');
+          $times.text(' ' + time)
+          $times.appendTo($miniAsides);
+          $times.addClass('time');
+          $miniAsides.prependTo($userTweets);
+          // $miniAsides.clone().prependTo($userTweets, $tweetArea2);
+          }, 3000);
+
+
+        // BUTTONS
+        var $shawndrostButton = $('<button>@shawndrost</button>');
+        $shawndrostButton.addClass('userName');
+        $shawndrostButton.appendTo($loginArea2);
+        $shawndrostButton.addClass('sideButtons');
+        $($shawndrostButton).on('click', function() {
+          $tweetArea2.html("<h4>Shawndrost's Tweets</h4>");
+          var index = streams.users.shawndrost.length - 1;
+          while(index >= 0){
+            var tweet = streams.users.shawndrost[index];
+            var $miniAsides = $('<div></div>');
+            // $miniAsides.attr('data-userName', tweet.user) /// find out how to use this.
+            $miniAsides.appendTo($tweetArea2);
+            $miniAsides.addClass('tweetArea');
+            var time = "at " + tweet.created_at.toUTCString();
+            var $user = $('<p></p>');
+            $user.text('@' + tweet.user + ': ');
+            $user.appendTo($miniAsides);
+            $user.addClass('userName');
+            var $tweet = $('<p></p>');
+            $tweet.text(tweet.message);
+            $tweet.appendTo($miniAsides);
+            var $times = $('<p></p>');
+            $times.text(' ' + time)
+            $times.appendTo($miniAsides);
+            $times.addClass('time');
+            index -= 1;
+          }
+       });
+
+        var $sharksforcheapButton = $('<button>@sharksforcheap</button>');
+        $sharksforcheapButton.addClass('userName');
+        $sharksforcheapButton.appendTo($loginArea2);
+        $sharksforcheapButton.addClass('sideButtons');
+        $sharksforcheapButton.click(function() {
+          $tweetArea2.html("<h4>sharksforcheap's Tweets</h4>");
+          var index = streams.users.sharksforcheap.length - 1;
+          while(index >= 0){
+            var tweet = streams.users.sharksforcheap[index];
+            var $miniAsides = $('<div></div>');
+            // $miniAsides.attr('data-userName', tweet.user) /// find out how to use this.
+            $miniAsides.appendTo($tweetArea2);
+            $miniAsides.addClass('tweetArea');
+            var time = "at " + tweet.created_at.toUTCString();
+            var $user = $('<p></p>');
+            $user.text('@' + tweet.user + ': ');
+            $user.appendTo($miniAsides);
+            $user.addClass('userName');
+            var $tweet = $('<p></p>');
+            $tweet.text(tweet.message);
+            $tweet.appendTo($miniAsides);
+            var $times = $('<p></p>');
+            $times.text(' ' + time)
+            $times.appendTo($miniAsides);
+            $times.addClass('time');
+            index -= 1;
+          }
+        });
+
+        var $douglascalhounButton = $('<button>@douglascalhoun</button>');
+        $douglascalhounButton.addClass('userName');
+        $douglascalhounButton.appendTo($loginArea2);
+        $douglascalhounButton.addClass('sideButtons');
+        $douglascalhounButton.click(function() {
+          $tweetArea2.html("<h4>douglascalhoun's Tweets</h4>");
+          var index = streams.users.douglascalhoun.length - 1;
+          while(index >= 0){
+            var tweet = streams.users.douglascalhoun[index];
+            var $miniAsides = $('<div></div>');
+            // $miniAsides.attr('data-userName', tweet.user) /// find out how to use this.
+            $miniAsides.appendTo($tweetArea2);
+            $miniAsides.addClass('tweetArea');
+            var time = "at " + tweet.created_at.toUTCString();
+            var $user = $('<p></p>');
+            $user.text('@' + tweet.user + ': ');
+            $user.appendTo($miniAsides);
+            $user.addClass('userName');
+            var $tweet = $('<p></p>');
+            $tweet.text(tweet.message);
+            $tweet.appendTo($miniAsides);
+            var $times = $('<p></p>');
+            $times.text(' ' + time)
+            $times.appendTo($miniAsides);
+            $times.addClass('time');
+            index -= 1;
+          }
+        });
+
+        var $mracusButton = $('<br><button>@mracus</button></br>');
+        $mracusButton.addClass('userName');
+        $mracusButton.appendTo($loginArea2);
+        $mracusButton.addClass('sideButtons');
+        $mracusButton.click(function() {
+          $tweetArea2.html("<h4>mracus's Tweets</h4>");
+          var index = streams.users.mracus.length - 1;
+          while(index >= 0){
+            var tweet = streams.users.mracus[index];
+            var $miniAsides = $('<div></div>');
+            // $miniAsides.attr('data-userName', tweet.user) /// find out how to use this.
+            $miniAsides.appendTo($tweetArea2);
+            $miniAsides.addClass('tweetArea');
+            var time = "at " + tweet.created_at.toUTCString();
+            var $user = $('<p></p>');
+            $user.text('@' + tweet.user + ': ');
+            $user.appendTo($miniAsides);
+            $user.addClass('userName');
+            var $tweet = $('<p></p>');
+            $tweet.text(tweet.message);
+            $tweet.appendTo($miniAsides);
+            var $times = $('<p></p>');
+            $times.text(' ' + time)
+            $times.appendTo($miniAsides);
+            $times.addClass('time');
+            index -= 1;
+          }
+        });
+
+
+
+      });
+
+    </script>
+  </body>
+</html>

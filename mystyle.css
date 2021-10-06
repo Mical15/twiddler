@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+  }
+
+body {
+  background-image: url('https://wallpapercave.com/wp/wp6248698.jpg');
+  background-size: cover;
+}
+
+aside {
+  /* border: 5px dotted; */
+  height: 65%;
+  width: 35%;
+  /* float: right; */
+  margin: 50px 5%;
+  background-image: url('https://wallpapercave.com/wp/wp6248698.jpg');
+  background-size: cover;
+  /* background-color: #b3210c; */
+  --box-shadow-color: rgb(0, 0, 0);
+  box-shadow: 5px 10px 10px var(--box-shadow-color);
+  text-align: center;
+  border-radius: 25px;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.scrollable {
+  height: 750px;
+  overflow-y: auto;
+}
+
+.sectionOpaque {
+  opacity: 0.30;
+}
+
+section {
+  /* border: 1px solid; */
+  height: 250px;
+  width: 350px;
+  /* float: right; */
+  /* align-content: center; */
+  background-color: #33313f;
+  box-shadow: 5px 10px 10px;
+  top: 25%;
+  right: 15%;
+  position: fixed;
+  border-radius: 25px;
+  /* border-color: #33313f; */
+  background-image: url('https://wallpapercave.com/wp/wp6248698.jpg');
+  /* color: #ffffff; */
+}
+
+.loginArea2 {
+  height: 160px;
+  width: 250px;
+  /* float: right; */
+  /* align-content: center; */
+  /* background-color: #33313f; */
+  box-shadow: 5px 10px 10px;
+  top: 30%;
+  right: 17.75%;
+  position: fixed;
+}
+
+.tweetArea {
+  border-bottom: #ffffff dotted 5px;
+  margin: 30px;
+}
+
+.tweetArea2 {
+  top: 15%;
+  height: 75%;
+  width: 20%;
+  /* height: 250px;
+  width: 350px; */
+  /* float: right; */
+  /* align-content: center; */
+  background-color: #33313f;
+  box-shadow: 5px 10px 10px;
+  margin: 5px 22%;
+  /* top: 25%;
+  right: 37%; */
+  position: fixed;
+  border-color: #33313f;
+  /* color: #ffffff; */
+  background-image: url('https://wallpapercave.com/wp/wp6248698.jpg');
+  background-size: fill;
+}
+
+p {
+  margin: 1%;
+  font-family: 'Grandstander', cursive;
+  text-align: center;
+  color: #e14e30;
+}
+
+.userName {
+  text-align: center;
+  color: #ffffff;
+  left: 10px;
+}
+
+.time {
+  color: #ffffff;
+}
+
+/* BUTTONS */
+
+ .sideButtons {
+  border: none;
+  background-color: inherit;
+  font-size: 16px;
+  padding: 4px 8px;
+  cursor: pointer;
+  display: inline-block;
+  align-content: left;
+  top: 10%;
+  right: 90%;
+}
+
+.loginButton:hover {
+  background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	background-color:#476e9e;
+}
+
+.mainButton {
+  top: 30%;
+  left: 40%;
+  position: relative;
+  display: block;
+  width: 300px;
+  height: 50px;
+	background:linear-gradient(to bottom, #33313f 99.9%, #e14e30 100%);
+  text-align: center;
+  font-family: 'Grandstander', cursive;
+  font-size: 50px;
+  color: white;
+  margin: 25px;
+  box-shadow: 5px 10px 10px black;
+}
+
+.clickUser {
+  margin: 1%;
+  font-family: 'Grandstander', cursive;
+}
+
+.mainbutton:hover {
+	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	background-color:#476e9e;
+}
+
+h1 {
+  font-family: 'Grandstander', cursive;
+  border-radius: 200px;
+  text-align: center;
+  font-size: 80px;
+  color: #ffffff;
+  margin-top: 15px;
+  border-bottom: 15px dotted;
+  border-radius: 25px;
+}
+
+h3 {
+  margin: 1%;
+  font-family: 'Grandstander', cursive;
+  text-align: center;
+  color: #e14e30;
+}
+
+h4 {
+  font-size: 30px;
+  font-family: 'Grandstander', cursive;
+  text-align: center;
+  color: #ffffff;
+  margin-top: 15px;
+  border-bottom: #ffffff dotted 5px;
+}
+
+h5 {
+  font-size: 40px;
+  top: 30%;
+  right: 37%;
+  font-family: 'Grandstander', cursive;
+  text-align: center;
+  color: #ffffff;
+  margin-top: 15px;
+  border-bottom: #ffffff dotted 10px;
+}
